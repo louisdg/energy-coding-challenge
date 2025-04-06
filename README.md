@@ -39,15 +39,15 @@ You can find the API documentation [here](API_DOCUMENTATION.md).
 
 ``` bash
    # supposing you are in the root folder
-   cd client/
+   cd server/
    npm install
 ```
 
-3. Install client dependencies:
+4. Install client dependencies:
 
 ``` bash
    # supposing you are in the root folder
-   cd server/
+   cd client/
    npm install
 ```
 
@@ -182,9 +182,12 @@ tried building the apps as they don't need to be deployed.
     - Add integration and end-to-end tests
     - Test more edge cases, such as unexpected API responses or network errors
 
-- **Scalability**
+- **Development tools**
     - Use a tool such as Nx to enhance monorepo management by optimising builds, task running, and dependency control,
       instead of having to handle the server and client as two completely separate entities
+    - Introduce Storybook to provide an isolated environment for developing, testing, and documenting React components.
+      This would enhance collaboration and design alignment between developers and designers while improving the
+      maintainability of the component library.
 
 - **Data handling**
     - Use the Octopus Agile API instead of querying the `agile_price_example.json` file
