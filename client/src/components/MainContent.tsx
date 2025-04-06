@@ -5,6 +5,7 @@ import { SIDE_MENU_WIDTH } from "./SideMenu.tsx";
 import spacing from "../theme/spacing.ts";
 import EnergyPricesPage from "./energyPrices/EnergyPricesPage.tsx";
 import HouseholdEnergyUsagePage from "./householdEnergyUsage/HouseholdEnergyUsagePage.tsx";
+import FlexibilityOpportunitiesPage from "./flexibilityOpportunities/FlexibilityOpportunitiesPage.tsx";
 
 function MainContent() {
   return (
@@ -19,6 +20,10 @@ function MainContent() {
           <Route
             path="household-energy-usage"
             element={<HouseholdEnergyUsagePage />}
+          />
+          <Route
+            path="flexibility-opportunities"
+            element={<FlexibilityOpportunitiesPage />}
           />
         </Routes>
       </Stack>

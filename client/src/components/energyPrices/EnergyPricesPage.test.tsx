@@ -1,5 +1,4 @@
 import { act, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import dayjs from "dayjs";
 import EnergyPricesPage from "./EnergyPricesPage";
 import mocked = jest.mocked;

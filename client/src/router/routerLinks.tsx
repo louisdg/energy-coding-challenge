@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import PriceChangeRoundedIcon from "@mui/icons-material/PriceChangeRounded";
 import HouseRoundedIcon from "@mui/icons-material/HouseRounded";
+import QueryStatsRoundedIcon from "@mui/icons-material/QueryStatsRounded";
 
 export type RouterLink = {
   title: string;
@@ -18,6 +19,11 @@ const routerLinks: RouterLink[] = [
     title: "Household energy usage",
     href: "/household-energy-usage",
     icon: <HouseRoundedIcon />,
+  },
+  {
+    title: "Flexibility opportunities",
+    href: "/flexibility-opportunities",
+    icon: <QueryStatsRoundedIcon />,
   },
 ];
 

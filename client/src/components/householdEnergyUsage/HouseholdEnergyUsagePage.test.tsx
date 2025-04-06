@@ -1,5 +1,4 @@
 import { act, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import HouseholdEnergyUsagePage from "./HouseholdEnergyUsagePage";
 import mocked = jest.mocked;
 import api from "../../api/api.ts";
@@ -13,7 +12,7 @@ jest.mock("../../api/api", () => ({
 }));
 
 describe("HouseholdEnergyUsagePage", () => {
-  it("should render with default values while the api is being fetched", async () => {
+  it("should render with default values while the api is being fetched", () => {
     mocked(
       api.householdEnergyUsage.getTotalEnergyUsageForHouseholdType,
     ).mockReturnValue(new Promise(() => {}));

@@ -4,9 +4,9 @@ export const FLEXIBILITY_OPPORTUNITIES_URL_PREFIX =
   "/flexibility-opportunities";
 
 export type FlexibilityOpportunity = {
-  startTime: number;
-  endTime: number;
-  pricePerKwh: string;
+  startTime: string;
+  endTime: string;
+  pricePerKwh: number;
 };
 
 export const buildFlexibilityOpportunitiesApi = (

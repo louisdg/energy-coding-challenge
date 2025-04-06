@@ -27,4 +27,34 @@ describe("MainContent", () => {
     ).toHaveTextContent("Energy prices");
     expect(screen.getByText("Energy prices")).toBeVisible();
   });
+
+  it("should render the household energy usage page when the route matches", () => {
+    render(
+      <MemoryRouter initialEntries={["/household-energy-usage"]}>
+        <MainContent />
+      </MemoryRouter>,
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+      }),
+    ).toHaveTextContent("Household energy usage");
+    expect(screen.getByText("Household energy usage")).toBeVisible();
+  });
+
+  it("should render the flexibility opportunities page when the route matches", () => {
+    render(
+      <MemoryRouter initialEntries={["/flexibility-opportunities"]}>
+        <MainContent />
+      </MemoryRouter>,
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+      }),
+    ).toHaveTextContent("Flexibility opportunities");
+    expect(screen.getByText("Flexibility opportunities")).toBeVisible();
+  });
 });
