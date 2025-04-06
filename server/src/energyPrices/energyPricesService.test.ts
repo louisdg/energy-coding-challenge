@@ -15,50 +15,59 @@ describe("energyPricesService", () => {
       expect(prices).toEqual([]);
     });
 
-    it("should return prices in the given time range", () => {
-      const prices = getEnergyPrices(
-        "2025-03-13T18:00:00Z",
-        "2025-03-13T21:00:00Z",
-      );
-      expect(prices).toEqual([
-        {
-          valueExcVatInPence: 26.5,
-          valueIncVatInPence: 27.825,
-          validFrom: "2025-03-13T20:30:00Z",
-          validTo: "2025-03-13T21:00:00Z",
-        },
-        {
-          valueExcVatInPence: 29.9,
-          valueIncVatInPence: 31.395,
-          validFrom: "2025-03-13T20:00:00Z",
-          validTo: "2025-03-13T20:30:00Z",
-        },
-        {
-          valueExcVatInPence: 29.9,
-          valueIncVatInPence: 31.395,
-          validFrom: "2025-03-13T19:30:00Z",
-          validTo: "2025-03-13T20:00:00Z",
-        },
-        {
-          valueExcVatInPence: 30.54,
-          valueIncVatInPence: 32.067,
-          validFrom: "2025-03-13T19:00:00Z",
-          validTo: "2025-03-13T19:30:00Z",
-        },
-        {
-          valueExcVatInPence: 46.06,
-          valueIncVatInPence: 48.363,
-          validFrom: "2025-03-13T18:30:00Z",
-          validTo: "2025-03-13T19:00:00Z",
-        },
-        {
-          valueExcVatInPence: 44.35,
-          valueIncVatInPence: 46.5675,
-          validFrom: "2025-03-13T18:00:00Z",
-          validTo: "2025-03-13T18:30:00Z",
-        },
-      ]);
-    });
+    it.each([
+      {
+        fromIso8601: "2025-03-13T18:00:00Z",
+        toIso8601: "2025-03-13T21:00:00Z",
+      },
+      {
+        fromIso8601: "2025-03-13T18:00:00.000Z",
+        toIso8601: "2025-03-13T21:00:00.000Z",
+      },
+    ])(
+      "should return prices in the given time range",
+      ({ fromIso8601, toIso8601 }) => {
+        const prices = getEnergyPrices(fromIso8601, toIso8601);
+        expect(prices).toEqual([
+          {
+            valueExcVatInPence: 26.5,
+            valueIncVatInPence: 27.825,
+            validFrom: "2025-03-13T20:30:00Z",
+            validTo: "2025-03-13T21:00:00Z",
+          },
+          {
+            valueExcVatInPence: 29.9,
+            valueIncVatInPence: 31.395,
+            validFrom: "2025-03-13T20:00:00Z",
+            validTo: "2025-03-13T20:30:00Z",
+          },
+          {
+            valueExcVatInPence: 29.9,
+            valueIncVatInPence: 31.395,
+            validFrom: "2025-03-13T19:30:00Z",
+            validTo: "2025-03-13T20:00:00Z",
+          },
+          {
+            valueExcVatInPence: 30.54,
+            valueIncVatInPence: 32.067,
+            validFrom: "2025-03-13T19:00:00Z",
+            validTo: "2025-03-13T19:30:00Z",
+          },
+          {
+            valueExcVatInPence: 46.06,
+            valueIncVatInPence: 48.363,
+            validFrom: "2025-03-13T18:30:00Z",
+            validTo: "2025-03-13T19:00:00Z",
+          },
+          {
+            valueExcVatInPence: 44.35,
+            valueIncVatInPence: 46.5675,
+            validFrom: "2025-03-13T18:00:00Z",
+            validTo: "2025-03-13T18:30:00Z",
+          },
+        ]);
+      },
+    );
   });
 
   describe("getLowestPriceInPence", () => {

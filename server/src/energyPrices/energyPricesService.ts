@@ -2,9 +2,16 @@ import energyPricesData from "../data/agile_price_example.json";
 import { EnergyPrice, energyPriceMapper } from "../model/energyPrice";
 
 export function getEnergyPrices(from: string, to: string): EnergyPrice[] {
-  return energyPricesData.results
-    .map(energyPriceMapper)
-    .filter((data) => data.validFrom >= from && data.validTo <= to);
+  const fromDate = new Date(from);
+  const toDate = new Date(to);
+  return energyPricesData.results.map(energyPriceMapper).filter((data) => {
+    const dataValidFromDate = new Date(data.validFrom);
+    const dataValidToDate = new Date(data.validTo);
+    return (
+      dataValidFromDate.valueOf() >= fromDate.valueOf() &&
+      dataValidToDate.valueOf() <= toDate.valueOf()
+    );
+  });
 }
 
 export function getLowestPriceInPence(date: string): EnergyPrice | null {
