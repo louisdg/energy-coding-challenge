@@ -182,6 +182,10 @@ tried building the apps as they don't need to be deployed.
     - Add integration and end-to-end tests
     - Test more edge cases, such as unexpected API responses or network errors
 
+- **Scalability**
+    - Use a tool such as Nx to enhance monorepo management by optimising builds, task running, and dependency control,
+      instead of having to handle the server and client as two completely separate entities
+
 - **Data handling**
     - Use the Octopus Agile API instead of querying the `agile_price_example.json` file
     - Switch to a dedicated database or cache for lookup performance instead of relying on the file system, parsing, and
