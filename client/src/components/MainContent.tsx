@@ -3,7 +3,8 @@ import { Route, Routes } from "react-router";
 import PageTitle from "./PageTitle.tsx";
 import { SIDE_MENU_WIDTH } from "./SideMenu.tsx";
 import spacing from "../theme/spacing.ts";
-import EnergyPricesPage from "./energy-prices/EnergyPricesPage.tsx";
+import EnergyPricesPage from "./energyPrices/EnergyPricesPage.tsx";
+import HouseholdEnergyUsagePage from "./householdEnergyUsage/HouseholdEnergyUsagePage.tsx";
 
 function MainContent() {
   return (
@@ -15,6 +16,10 @@ function MainContent() {
         <PageTitle />
         <Routes>
           <Route path="energy-prices" element={<EnergyPricesPage />} />
+          <Route
+            path="household-energy-usage"
+            element={<HouseholdEnergyUsagePage />}
+          />
         </Routes>
       </Stack>
     </Container>

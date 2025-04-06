@@ -52,7 +52,6 @@ describe("EnergyPricesVisualisation", () => {
           loading={false}
           energyPrices={energyPrices}
         />
-        ,
       </LocalizationProvider>,
     );
 

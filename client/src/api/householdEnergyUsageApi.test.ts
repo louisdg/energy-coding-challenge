@@ -43,7 +43,7 @@ describe("householdEnergyUsageApi", () => {
 
     describe("getPeakEnergyUsageAcrossHouseholds", () => {
       it("should fetch the peak energy usage across households", async () => {
-        const mockedData = 123.45;
+        const mockedData = { usageInKwh: 123.45, time: "15:00" };
         mockedAxiosInstance.get.mockResolvedValueOnce({ data: mockedData });
 
         const peakEnergyUsageAcrossHouseholds =
