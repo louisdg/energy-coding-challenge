@@ -57,4 +57,21 @@ describe("MainContent", () => {
     ).toHaveTextContent("Flexibility opportunities");
     expect(screen.getByText("Flexibility opportunities")).toBeVisible();
   });
+
+  it("should redirect to the energy prices page when no routes match", () => {
+    render(
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <MemoryRouter initialEntries={["/not-a-route"]}>
+          <MainContent />
+        </MemoryRouter>
+      </LocalizationProvider>,
+    );
+
+    expect(
+      screen.getByRole("heading", {
+        level: 1,
+      }),
+    ).toHaveTextContent("Energy prices");
+    expect(screen.getByText("Energy prices")).toBeVisible();
+  });
 });

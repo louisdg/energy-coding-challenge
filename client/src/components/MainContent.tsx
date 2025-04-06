@@ -1,5 +1,5 @@
 import { Container, Stack } from "@mui/material";
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import PageTitle from "./PageTitle.tsx";
 import { SIDE_MENU_WIDTH } from "./SideMenu.tsx";
 import spacing from "../theme/spacing.ts";
@@ -25,6 +25,7 @@ function MainContent() {
             path="flexibility-opportunities"
             element={<FlexibilityOpportunitiesPage />}
           />
+          <Route path="*" element={<Navigate to="/energy-prices" replace />} />
         </Routes>
       </Stack>
     </Container>
