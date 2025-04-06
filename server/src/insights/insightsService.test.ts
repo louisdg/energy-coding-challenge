@@ -29,15 +29,15 @@ describe("insightsService", () => {
     it.each([
       {
         householdType: "STANDARD",
-        expectedPotentialEarningsInPence: 765,
+        expectedPotentialEarningsInPence: 7.65,
       },
       {
         householdType: "HEAT_PUMP",
-        expectedPotentialEarningsInPence: 900,
+        expectedPotentialEarningsInPence: 9.0,
       },
       {
         householdType: "HEAT_PUMP_BATTERY",
-        expectedPotentialEarningsInPence: 150,
+        expectedPotentialEarningsInPence: 1.5,
       },
     ] as const)(
       "should estimate potential earnings for a household if it participated in the flexibility market",

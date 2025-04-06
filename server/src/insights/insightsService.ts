@@ -105,16 +105,15 @@ function calculatePotentialEarningsInPenceForHouseholdType(
 
     return (
       total +
-      calculatePotentialEarningsInPoundsDuringFlexibilityOpportunity(
+      calculatePotentialEarningsInPenceDuringFlexibilityOpportunity(
         flexibilityOpportunity,
         totalEnergyUsageDuringFlexibilityOpportunity,
-      ) *
-        100
+      )
     );
   }, 0);
 }
 
-function calculatePotentialEarningsInPoundsDuringFlexibilityOpportunity(
+function calculatePotentialEarningsInPenceDuringFlexibilityOpportunity(
   flexibilityOpportunity: FlexibilityOpportunity,
   totalEnergyUsageDuringFlexibilityOpportunity: number,
 ) {
