@@ -18,6 +18,7 @@ function AppLink({ routerLink }: NavLinkProps) {
         selected={location.pathname.startsWith(routerLink.href)}
         component={Link}
         to={routerLink.href}
+        dense
       >
         <ListItemIcon>{routerLink.icon}</ListItemIcon>
         <ListItemText primary={routerLink.title} />

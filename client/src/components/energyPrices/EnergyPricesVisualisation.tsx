@@ -75,8 +75,15 @@ function EnergyPricesVisualisation({
         loading={loading}
         xAxis={[
           {
+            label: "Time",
             data: sortedEnergyPricesDates,
             scaleType: "utc",
+          },
+        ]}
+        yAxis={[
+          {
+            label: "Price",
+            valueFormatter: (value) => formatCurrency(value)!,
           },
         ]}
         series={[
@@ -100,7 +107,11 @@ function EnergyPricesVisualisation({
         {stats && (
           <ChartsReferenceLine
             y={stats.averageEnergyPriceIncVat}
-            label="Average price"
+            label="Average price (inc. VAT)"
+            labelStyle={{ fontSize: 12 }}
+            lineStyle={{
+              strokeDasharray: "6 4",
+            }}
           />
         )}
       </LineChart>

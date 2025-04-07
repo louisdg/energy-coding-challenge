@@ -11,7 +11,7 @@ function MainContent() {
   return (
     <Container
       component="main"
-      sx={{ width: `calc(100% - ${SIDE_MENU_WIDTH}px)` }}
+      sx={{ width: `calc(100% - ${SIDE_MENU_WIDTH}px)`, padding: spacing.sm }}
     >
       <Stack spacing={spacing.md}>
         <PageTitle />

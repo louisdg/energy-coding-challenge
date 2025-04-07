@@ -1,4 +1,4 @@
-import { act, render, screen } from "@testing-library/react";
+import { act, getByText, render, screen } from "@testing-library/react";
 import dayjs from "dayjs";
 import EnergyPricesPage from "./EnergyPricesPage";
 import mocked = jest.mocked;
@@ -71,17 +71,29 @@ describe("EnergyPricesPage", () => {
       );
     });
 
-    expect(screen.getByText("Average price (exc. VAT)")).toBeVisible();
-    expect(screen.getByText("£6.00")).toBeVisible();
+    const averagePriceExcVatStatCard = screen.getByRole("region", {
+      name: "Average price (exc. VAT)",
+    });
+    expect(averagePriceExcVatStatCard).toBeVisible();
+    expect(getByText(averagePriceExcVatStatCard, "£6.00")).toBeVisible();
 
-    expect(screen.getByText("Average price (inc. VAT)")).toBeVisible();
-    expect(screen.getByText("£6.50")).toBeVisible();
+    const averagePriceIncVatStatCard = screen.getByRole("region", {
+      name: "Average price (inc. VAT)",
+    });
+    expect(averagePriceIncVatStatCard).toBeVisible();
+    expect(getByText(averagePriceIncVatStatCard, "£6.50")).toBeVisible();
 
-    expect(screen.getByText("Lowest price (inc. VAT)")).toBeVisible();
-    expect(screen.getByText("£1.50")).toBeVisible();
+    const lowestPriceIncVatStatCard = screen.getByRole("region", {
+      name: "Lowest price (inc. VAT)",
+    });
+    expect(lowestPriceIncVatStatCard).toBeVisible();
+    expect(getByText(lowestPriceIncVatStatCard, "£1.50")).toBeVisible();
 
-    expect(screen.getByText("Highest price (inc. VAT)")).toBeVisible();
-    expect(screen.getByText("£11.50")).toBeVisible();
+    const highestPriceIncVatStatCard = screen.getByRole("region", {
+      name: "Highest price (inc. VAT)",
+    });
+    expect(highestPriceIncVatStatCard).toBeVisible();
+    expect(getByText(highestPriceIncVatStatCard, "£11.50")).toBeVisible();
 
     expect(screen.queryByText("Loading data…")).not.toBeInTheDocument();
     expect(screen.queryByText("No data to display")).not.toBeInTheDocument();

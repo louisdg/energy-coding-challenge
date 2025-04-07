@@ -203,6 +203,11 @@ tried building the apps as they don't need to be deployed.
     - Use monitoring tools for logging/analytics
     - Consider security improvements like input sanitisation, authentication & authorization mechanisms
 
+- **Design tokens**
+    - Add a design token system to centralise colors, typography, spacing, and all others visual component related
+      variables. This ensures consistent styling, simplifies design updates, and reduces hardcoding, to further enable
+      easier collaboration between UI designers and developers
+
 - **UI/UX**
     - Make the interface mobile-friendly by increasing responsiveness
     - Add the option to sort/filter data where necessary

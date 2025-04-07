@@ -1,5 +1,5 @@
-import { Card, CardContent, Grid, Stack, Typography } from "@mui/material";
-import spacing from "../theme/spacing.ts";
+import { Card, CardContent, Grid, Typography } from "@mui/material";
+import { useId } from "react";
 
 type StatCardProps = {
   stat: string | number | null;
@@ -7,16 +7,21 @@ type StatCardProps = {
 };
 
 function StatCard({ stat, label }: StatCardProps) {
+  const statId = useId();
   return (
-    <Grid size={{ xs: 12, md: 6, lg: 3 }}>
+    <Grid
+      size={{ xs: 12, md: 6, lg: 3 }}
+      role="region"
+      aria-labelledby={statId}
+    >
       <Card>
         <CardContent>
-          <Stack spacing={spacing.xs}>
-            <Typography variant="h3">{stat ?? "-"}</Typography>
-            <Typography variant="body2" color="textSecondary">
-              {label}
-            </Typography>
-          </Stack>
+          <Typography variant="h4" gutterBottom>
+            {stat ?? "-"}
+          </Typography>
+          <Typography variant="caption" color="textSecondary" id={statId}>
+            {label}
+          </Typography>
         </CardContent>
       </Card>
     </Grid>

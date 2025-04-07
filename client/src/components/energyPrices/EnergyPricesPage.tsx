@@ -3,7 +3,7 @@ import { DateTimePicker } from "@mui/x-date-pickers";
 import { Dayjs } from "dayjs";
 import dayjs from "dayjs";
 import api from "../../api/api.ts";
-import { Stack } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 import EnergyPricesVisualisation from "./EnergyPricesVisualisation.tsx";
 import useApi from "../../hooks/useApi.ts";
 
@@ -19,30 +19,36 @@ function EnergyPricesPage() {
 
   return (
     <Stack>
-      <Stack direction="row">
-        <DateTimePicker
-          label="From"
-          value={from}
-          onChange={(e) => {
-            if (e === null || !e.isValid()) {
-              return;
-            }
+      <Grid container sx={{ justifyContent: "space-between" }}>
+        <Grid size={{ xs: 12, md: 6 }}>
+          <DateTimePicker
+            label="From"
+            value={from}
+            onChange={(e) => {
+              if (e === null || !e.isValid()) {
+                return;
+              }
 
-            setFrom(e);
-          }}
-        />
-        <DateTimePicker
-          label="To"
-          value={to}
-          onChange={(e) => {
-            if (e === null || !e.isValid()) {
-              return;
-            }
+              setFrom(e);
+            }}
+            slotProps={{ textField: { fullWidth: true } }}
+          />
+        </Grid>
+        <Grid size={{ xs: 12, md: 6 }}>
+          <DateTimePicker
+            label="To"
+            value={to}
+            onChange={(e) => {
+              if (e === null || !e.isValid()) {
+                return;
+              }
 
-            setTo(e);
-          }}
-        />
-      </Stack>
+              setTo(e);
+            }}
+            slotProps={{ textField: { fullWidth: true } }}
+          />
+        </Grid>
+      </Grid>
       <EnergyPricesVisualisation
         loading={energyPrices === "LOADING"}
         energyPrices={
